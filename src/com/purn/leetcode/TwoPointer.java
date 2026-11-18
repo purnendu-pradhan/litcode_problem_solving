@@ -1,4 +1,4 @@
-package com.purn.dsa;
+package com.purn.leetcode;
 
 public class TwoPointer {
 	

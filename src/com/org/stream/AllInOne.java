@@ -1,9 +1,11 @@
 package com.org.stream;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -42,8 +44,27 @@ public class AllInOne {
 		
 		//System.out.println(result);
 		
-		//duplicate characters in a String
+		//Duplicate characters in a String
 		String str1 = "programming";
+		
+		Set<Character> seens = new HashSet<>();
+		
+		List<Character> duplicateCharacter = str1.chars().mapToObj(c -> (char) c).filter(c -> !seens.add(c)).distinct().collect(Collectors.toList());
+		
+		System.out.println(duplicateCharacter);
+		
+		
+				
+		
+		//Duplicate Integer elements
+		List<Integer> number = Arrays.asList(1,2,2,3,4,3,6,7);
+
+		Set<Integer> seen = new HashSet<>();
+
+		List<Integer> duplicate = number.stream().filter(n -> !seen.add(n)).distinct().collect(Collectors.toList());
+
+
+		//System.out.println("Duplicate elements : "+duplicate);
 		
 		
 				
