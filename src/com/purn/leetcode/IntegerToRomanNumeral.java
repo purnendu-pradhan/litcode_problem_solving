@@ -1,4 +1,4 @@
-package com.purn.string;
+package com.purn.leetcode;
 
 public class IntegerToRomanNumeral {
 
