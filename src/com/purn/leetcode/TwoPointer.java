@@ -1,8 +1,12 @@
 package com.purn.leetcode;
 
+import java.util.Arrays;
+
 public class TwoPointer {
 	
 	public static boolean twoSum(int[] arr, int target) {
+		
+		Arrays.sort(arr);
 		int left = 0;
 		int right = arr.length - 1;
 
@@ -27,9 +31,8 @@ public class TwoPointer {
 
 	public static void main(String[] args) {
 
-		int[] arr = { 2, 3, 4, 8, 9, 11 };
+		int[] arr = { 2, 9, 4, 8, 11, 16, 10, 7};
 		int target = 20;
-		//Arrays.sort(arr);
 		twoSum(arr, target);
 
 	}

@@ -1,6 +1,7 @@
 package com.org.stream;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AllInOne {
 
@@ -51,7 +53,7 @@ public class AllInOne {
 		
 		List<Character> duplicateCharacter = str1.chars().mapToObj(c -> (char) c).filter(c -> !seens.add(c)).distinct().collect(Collectors.toList());
 		
-		System.out.println(duplicateCharacter);
+		//System.out.println(duplicateCharacter);
 		
 		
 				
@@ -66,8 +68,34 @@ public class AllInOne {
 
 		//System.out.println("Duplicate elements : "+duplicate);
 		
+		List<Product> products = Arrays.asList(
+	            new Product(101, "Laptop", 55000),
+	            new Product(102, "Mobile", 25000),
+	            new Product(103, "Keyboard", 1500),
+	            new Product(104, "Mouse", 800),
+	            new Product(105, "Monitor", 12000)
+	        );
 		
-				
+		products.stream()
+				.filter(p -> p.getPrice()>1500)
+				.forEach(pr -> System.out.println(pr.getName()));
+		
+		//System.out.println(product);
+		//product.forEach(pr -> System.out.println(pr.getName()));
+		
+		
+		List<String> name = products.stream()
+				.filter(p -> p.getPrice() > 1500).map(p -> p.getName()).collect(Collectors.toList());
+		
+		//System.out.println(name);
+		
+		//Find the word that has the highest length
+
+		String longest = "I am learning Streams API in Java";
+		
+		String longestlength = Arrays.stream(longest.split(" ")).max(Comparator.comparing(String::length)).get();
+		
+		System.out.println(longestlength);
 	}
 
 }
